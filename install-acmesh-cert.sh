@@ -14,4 +14,4 @@ nginx -t && mkdir -p $prefix && ~/.acme.sh/acme.sh --home ~/.acme.sh --install-c
 	--cert-file       $prefix/cert.pem \
 	--ca-file         $prefix/ca.pem \
 	--reloadcmd       "service nginx force-reload" \
-	"${@:2}"
+	-d "$domain" "${@:2}"
