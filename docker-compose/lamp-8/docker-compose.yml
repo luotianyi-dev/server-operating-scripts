@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 networks:
   app:
@@ -7,7 +7,7 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 7.12.0.0/30
+        - subnet: 172.72.0.0/30
 
 services:
   app:
@@ -15,7 +15,7 @@ services:
     container_name: news_aismc_bid
     networks:
       app:
-        ipv4_address: 7.12.0.2
+        ipv4_address: 172.72.0.2
     volumes:
       - "/etc/localtime:/etc/localtime:ro"
       - "/etc/timezone:/etc/timezone:ro"
