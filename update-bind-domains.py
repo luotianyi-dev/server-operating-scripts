@@ -3,7 +3,7 @@ import json
 import os
 from urllib.request import Request, urlopen
 
-with open("~/.luotianyi-powerdns.cred.json", 'w') as f:
+with open("/root/.luotianyi-powerdns.cred.json", 'r') as f:
     config = json.loads(f.read())
     config["apiurl"] = config.get("apiurl", "http://127.0.0.1/api/v1/servers/localhost/zones")
     config["target"] = config.get("target", "/etc/bind/domains.conf")
