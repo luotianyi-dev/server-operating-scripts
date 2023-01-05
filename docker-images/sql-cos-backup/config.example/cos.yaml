@@ -1,0 +1,11 @@
+cos:
+  base:
+    secretid: xxx
+    secretkey: xxx
+    protocol: https
+  buckets:
+  - name: my-bucket-114514
+    alias: bucket # do not change
+    region: ap-shanghai
+    endpoint: cos.ap-shanghai.myqcloud.com
+

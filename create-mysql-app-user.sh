@@ -1,13 +1,17 @@
 #!/bin/bash
 username=$1
 password=$(uuidgen)
+mysql_version="$(mysql -V | grep -i mariadb)"
+auth_statement=""
 
-if [ "$1" = "" ]; then
-        echo "usage: $0 <username>"
-        exit 2
+if [ "$mysql_version" = "" ]; then
+	echo "Server is MySQL"
+	auth_statement="WITH caching_sha2_password"
+else
+	echo "Server is MariaDB"
 fi
 
-mysql -e "CREATE USER '$username' IDENTIFIED WITH caching_sha2_password BY '$password';"
+mysql -e "CREATE USER '$username' IDENTIFIED $auth_statement BY '$password';"
 mysql -e "CREATE DATABASE $username;"
 mysql -e "GRANT ALL PRIVILEGES ON $username.* TO $username WITH GRANT OPTION;"
 mysql -e "flush privileges;";

@@ -1,0 +1,7 @@
+route = "/go/<url>"
+
+[gl]
+url = "https://www.google.com"
+
+[ms]
+url = "https://www.microsoft.com"
